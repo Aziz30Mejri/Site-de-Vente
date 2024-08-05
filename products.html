@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Fitness | Tous Les Produits</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+</head>
+<body>
+
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo-life-fitness.png" width="125px"></a>
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="#">Produit</a></li>
+                        <li><a href="">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="account.html">Compte</a></li>
+                    </ul>
+                </nav>
+                <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
+                <img src="images/menu.png" class="menu-icon" 
+                onclick="menutoggle()">
+            </div>
+        </div>
+
+
+<div class="samll-container">
+    <div class="row row-2">
+        <h2 style="margin-left: 50px;">Tous Les Produits</h2>
+        <select id="filter" style="margin-right: 50px;">
+            <option value="default">Tri par défaut</option>
+            <option value="low-to-high">Prix Le Plus Bas</option>
+            <option value="high-to-low">Prix Le Plus Élevée</option>
+        </select>
+    </div>
+    <input type="text" id="search" placeholder="Rechercher un produit" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px; margin-left: 45%; margin-bottom: 25px; text-align: center;">
+    <div id="products" class="row">
+        <div class="col-4" data-price="55">
+            <a href="product-details1.html"><img src="images/gallery-11.png"></a>
+            <a href="product-details1.html"><h4>Polo de Golf </h4></a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa-regular fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+            </div>
+            <p>55 TND</p>
+        </div>
+        <div class="col-4" data-price="199">
+            <a href="product-details2.html"><img src="images/product-2.png"></a>
+            <a href="product-details2.html"><h4>Chaussures de Running</h4></a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+            </div>
+            <p>99 TND</p>
+        </div>
+        <div class="col-4" data-price="99">
+            <a href="product-details3.html"><img src="images/product-3.png"></a>
+            <a href="product-details3.html"><h4>Pantalon Jogging</h4></a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa-regular fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+            </div>
+            <p>99 TND</p>
+        </div>
+        <div class="col-4" data-price="99">
+            <a href="product-details4.html"><img src="images/product-4.png"></a>
+            <a href="product-details4.html"><h4>T-Shirt Running Manches Longues</h4></a>
+            <div class="rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa-regular fa-star-half-stroke"></i>
+            </div>
+            <p>99 TND</p>
+        </div>
+
+
+        <div class="row">
+            <div class="col-4" data-price="50">
+                <a href="product-details5.html"><img src="images/product-5.jpg"></a>
+                <a href="product-details5.html"><h4>Chaussure Vans OTW "Perf" Pack</h4></a>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p>99 TND</p>
+            </div>
+            <div class="col-4" data-price="65">
+                <a href="product-details6.html"><img src="images/product-6.webp"></a>
+                <a href="product-details6.html"><h4>T-shirt de randonnée</h4></a>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-regular fa-star-half-stroke"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p>65 TND</p>
+            </div>
+            <div class="col-4" data-price="290">
+                <a href="product-details7.html"><img src="images/product-7.webp"></a>
+                <a href="product-details7.html"><h4>Chaussure de Football</h4></a>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-regular fa-star-half-stroke"></i>
+                </div>
+                <p>290 TND</p>
+            </div>
+            <div class="col-4" data-price="29">
+                <a href="product-details8.html"><img src="images/product-8.webp"></a>
+                <a href="product-details8.html"><h4>Sac de fitness pliable</h4></a>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p>29 TND</p>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-4" data-price="35">
+                <a href="product-details9.html"><img src="images/product-9.webp"></a>
+                <a href="product-details9.html"><h4>Casquette de Golf</h4></a>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p>35 TND</p>
+            </div>
+            <div class="col-4" data-price="159">
+                <a href="product-details10.html"><img src="images/product-10.png"></a>
+                <a href="product-details10.html"><h4>CHAUSSURES de Running Femme</h4></a>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p>159 TND</p>
+            </div>
+            <div class="col-4" data-price="169">
+                <a href="product-details11.html"><img src="images/product-11.png"></a>
+                <a href="product-details11.html"><h4>Chaussure de Running Homme</h4></a>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-regular fa-star-half-stroke"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p>169 TND</p>
+            </div>
+            <div class="col-4" data-price="79">
+                <a href="product-details12.html"><img src="images/product-12.png"></a>
+                <a href="product-details12.html"><h4>Pantalon de survêtement Dry pour homme - Bleu foncé</h4></a>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <p>79 TND</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-btn">
+        <span style="margin-left: 30px">1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>&#8594;</span>
+    </div>
+
+    </div>
+
+<!--footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Téléchargez Notre Application</h3>
+                    <p>
+                        Téléchargez l'application pour téléphone mobile Android et iOS.</p>
+                    <div class="app-logo">
+                        <img src="images/play-store.png">
+                        <img src="images/app-store.png">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/logo-life-fitness.png">
+                    <p>Notre objectif est de rendre durablement accessible au plus grand nombre le plaisir et les bienfaits du sport.
+                    </p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Liens Utiles</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Article de Blog</li>
+                        <li>Politique de Retour</li>
+                        <li>Rejoignez l'Affiliation</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Suivez-Moi</h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/patro.aziz.1234" target="_blank">Facebook</a></li>
+                        <li><a href="https://www.linkedin.com/in/mohamed-aziz-mejri-784015240/" target="_blank">LinkdIn</a></li>
+                        <li><a href="https://www.instagram.com/aziz_mejri__/" target="_blank">Instagram</a></li>
+                        <li><a href="#/" target="_blank">Site Web</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2023 - Mohamed Aziz Mejri</p>
+        </div>
+    </div>
+
+    <!--js for toggle menu-->
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+
+        MenuItems.style.maxHeight = "0px";
+
+        function menutoggle(){
+            if(MenuItems.style.maxHeight == "0px")
+                {
+                    MenuItems.style.maxHeight = "200px"
+                }
+                else{
+                    MenuItems.style.maxHeight = "0px"
+                }
+        }
+    </script>
+    <script>
+        document.getElementById('filter').addEventListener('change', function() {
+            const filterValue = this.value;
+            const productsContainer = document.getElementById('products');
+            const products = Array.from(productsContainer.getElementsByClassName('col-4'));
+        
+            if (filterValue === 'low-to-high') {
+                products.sort((a, b) => parseFloat(a.dataset.price) - parseFloat(b.dataset.price));
+            } else if (filterValue === 'high-to-low') {
+                products.sort((a, b) => parseFloat(b.dataset.price) - parseFloat(a.dataset.price));
+            } else {
+                // Si besoin, ajoutez le code pour le tri par défaut ici.
+            }
+        
+            // Réorganiser les éléments triés dans le conteneur
+            productsContainer.innerHTML = '';
+            products.forEach(product => {
+                productsContainer.appendChild(product);
+            });
+        });
+        </script>        
+
+        <script>
+        document.getElementById('search').addEventListener('input', function() {
+            const searchText = this.value.toLowerCase();
+            const productsContainer = document.getElementById('products');
+            const products = Array.from(productsContainer.getElementsByClassName('col-4'));
+
+            products.forEach(product => {
+                const productName = product.querySelector('h4').innerText.toLowerCase();
+                if (productName.includes(searchText)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+        </script>
+
+        <script>
+            document.getElementById('search').addEventListener('input', function() {
+                const searchText = this.value.toLowerCase();
+                const productsContainer = document.getElementById('products');
+                const products = Array.from(productsContainer.getElementsByClassName('col-4'));
+
+                products.forEach(product => {
+                    const productName = product.querySelector('h4').innerText.toLowerCase();
+                    if (productName.includes(searchText)) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        </script>
+    
+</body>
+</html>

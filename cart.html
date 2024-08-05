@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Fitness | Panier</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+</head>
+<body>
+
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo-life-fitness.png" width="125px"></a>
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="products.html">Produit</a></li>
+                        <li><a href="">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="account.html">Compte</a></li>
+                    </ul>
+                </nav>
+                <a href="#"><img src="images/cart.png" width="30px" height="30px"></a>
+                <img src="images/menu.png" class="menu-icon" 
+                onclick="menutoggle()">
+            </div>
+        </div>
+
+<!--cart items details-->
+<div class="small-container cart-page">
+    <table id="cartItemsTable">
+        <tr>
+            <th>Produit</th>
+            <th>Quantité</th>
+            <th>Montant</th>
+        </tr>
+
+    <div class="total-price">
+        <table id="totalPriceTable">
+            <tr>
+                <td>Montant</td>
+                <td id="montant">0 TND</td>
+            </tr>
+            <tr>
+                <td>Taxe</td>
+                <td>1 TND</td>
+            </tr>
+            <tr>
+                <td>Montant Total</td>
+                <td id="montantTotal">0 TND</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!--footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Téléchargez Notre Application</h3>
+                    <p>
+                        Téléchargez l'application pour téléphone mobile Android et iOS.</p>
+                    <div class="app-logo">
+                        <img src="images/play-store.png">
+                        <img src="images/app-store.png">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/logo-life-fitness.png">
+                    <p>Notre objectif est de rendre durablement accessible au plus grand nombre le plaisir et les bienfaits du sport.
+                    </p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Liens Utiles</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Article de Blog</li>
+                        <li>Politique de Retour</li>
+                        <li>Rejoignez l'Affiliation</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Suivez-Moi</h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/patro.aziz.1234" target="_blank">Facebook</a></li>
+                        <li><a href="https://www.linkedin.com/in/mohamed-aziz-mejri-784015240/" target="_blank">LinkdIn</a></li>
+                        <li><a href="https://www.instagram.com/aziz_mejri__/" target="_blank">Instagram</a></li>
+                        <li><a href="#/" target="_blank">Site Web</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">Copyright 2023 - Mohamed Aziz Mejri</p>
+        </div>
+    </div>
+
+    <!--js for toggle menu-->
+    <script>
+        var MenuItems = document.getElementById("MenuItems");
+
+        MenuItems.style.maxHeight = "0px";
+
+        function menutoggle(){
+            if(MenuItems.style.maxHeight == "0px")
+                {
+                    MenuItems.style.maxHeight = "200px"
+                }
+                else{
+                    MenuItems.style.maxHeight = "0px"
+                }
+        }
+    </script>
+
+<script>
+    window.onload = function() {
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+        var cartItemsTable = document.getElementById('cartItemsTable');
+        var MontantElement = document.getElementById('montant');
+        var montantTotalElement = document.getElementById('montantTotal');
+
+        var montant = 0;
+        var taxe = 1;
+
+        // Ajout des produits dans le tableau
+        cart.forEach(function(item) {
+            var row = cartItemsTable.insertRow();
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+
+            cell1.innerHTML = `
+                <div class="cart-info">
+                    <img src="${item.imageUrl}">
+                    <div>
+                        <p>${item.name}</p>
+                        <small>Prix: ${item.price} TND</small>
+                        <small>Taille: ${item.size}</small> <!-- Ajout de la taille ici -->
+                        <a href="#" class="remove" data-id="${item.id}">Supprimer</a>
+                    </div>
+                </div>`;
+            cell2.innerHTML = `<input type="number" value="${item.quantity}" data-id="${item.id}">`;
+            cell3.innerHTML = `${item.price * item.quantity} TND`;
+
+            montant += item.price * item.quantity;
+        });
+
+        // Mettre à jour les totaux
+        MontantElement.textContent = montant + ' TND';
+        montantTotalElement.textContent = (montant + taxe) + ' TND';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var cartItemsTable = document.getElementById('cartItemsTable');
+
+        cartItemsTable.addEventListener('change', function(event) {
+            if (event.target.type === 'number') {
+                var cart = JSON.parse(localStorage.getItem('cart'));
+                var id = event.target.getAttribute('data-id');
+                var newQuantity = parseInt(event.target.value);
+
+                cart = cart.map(item => {
+                    if (item.id === id) {
+                        item.quantity = newQuantity;
+                    }
+                    return item;
+                });
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+                location.reload(); // Recharger la page pour mettre à jour les totaux
+            }
+        });
+
+        cartItemsTable.addEventListener('click', function(event) {
+            if (event.target.classList.contains('remove')) {
+                event.preventDefault();
+                var cart = JSON.parse(localStorage.getItem('cart'));
+                var id = event.target.getAttribute('data-id');
+
+                cart = cart.filter(item => item.id !== id);
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+                location.reload(); // Recharger la page pour mettre à jour la liste des articles
+            }
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var cartItemsTable = document.getElementById('cartItemsTable');
+
+        cartItemsTable.addEventListener('change', function(event) {
+            if (event.target.type === 'number') {
+                var cart = JSON.parse(localStorage.getItem('cart'));
+                var id = event.target.getAttribute('data-id');
+                var newQuantity = parseInt(event.target.value);
+
+                cart = cart.map(item => {
+                    if (item.id === id) {
+                        item.quantity = newQuantity;
+                    }
+                    return item;
+                });
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+                location.reload(); // Recharger la page pour mettre à jour les totaux
+            }
+        });
+
+        cartItemsTable.addEventListener('click', function(event) {
+            if (event.target.classList.contains('remove')) {
+                event.preventDefault();
+                var cart = JSON.parse(localStorage.getItem('cart'));
+                var id = event.target.getAttribute('data-id');
+
+                cart = cart.filter(item => item.id !== id);
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+                location.reload(); // Recharger la page pour mettre à jour la liste des articles
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
